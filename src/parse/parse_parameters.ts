@@ -13,6 +13,7 @@ export function parseParameters(
     parameterTokens: string[],
     body: string[],
     functionName: string,
+    code: string[] = [],
 ): DocstringParts {
     return {
         name: functionName,
@@ -22,6 +23,7 @@ export function parseParameters(
         returns: parseReturn(parameterTokens, body),
         yields: parseYields(parameterTokens, body),
         exceptions: parseExceptions(body),
+        code : code,
     };
 }
 

@@ -16,6 +16,7 @@ export class TemplateData {
     public exceptions: Exception[];
     public returns: Returns;
     public yields: Yields;
+    public code: string[];
 
     private includeName: boolean;
     private includeExtendedSummary: boolean;
@@ -33,6 +34,7 @@ export class TemplateData {
         this.exceptions = docstringParts.exceptions;
         this.returns = docstringParts.returns;
         this.yields = docstringParts.yields;
+        this.code = docstringParts.code;
 
         this.includeName = includeName;
         this.includeExtendedSummary = includeExtendedSummary;
@@ -51,11 +53,12 @@ export class TemplateData {
     }
 
     public summaryPlaceholder(): string {
+        const summary = `AI is creating summary for ${this.name}`;
         if (this.includeName) {
-            return this.name + " ${@@@:[summary]}";
+            return this.name + " ${@@@:" + summary + "}";
         }
 
-        return "${@@@:[summary]}";
+        return "${@@@:" + summary + "}";
     }
 
     public extendedSummaryPlaceholder(): string {

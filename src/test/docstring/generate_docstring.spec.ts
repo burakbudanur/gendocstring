@@ -461,6 +461,7 @@ const defaultDocstringComponents: DocstringParts = {
     returns: { type: "" },
     yields: { type: "" },
     exceptions: [],
+    code: [],
 };
 
 const noTypesTemplate = `{{#args}}{{var}} {{type}}{{/args}}

@@ -9,3 +9,8 @@ test_*
 *.psd
 todo
 autodocstring-*.vsix
+
+.idea/
+*.bin
+*.pyc
+__pycache__/

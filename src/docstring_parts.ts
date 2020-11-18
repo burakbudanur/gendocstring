@@ -6,6 +6,7 @@ export interface DocstringParts {
     exceptions: Exception[];
     returns: Returns;
     yields: Yields;
+    code: string[];
 }
 
 export interface Decorator {

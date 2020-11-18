@@ -1,16 +1,25 @@
+import { DocstringParts } from "./docstring_parts";
+
+const axios = require('axios');
 import * as path from "path";
 import * as vs from "vscode";
 import { DocstringFactory } from "./docstring/docstring_factory";
 import { getCustomTemplate, getTemplate } from "./docstring/get_template";
 import { getDocstringIndentation, getDefaultIndentation, parse } from "./parse";
 import { extensionID } from "./constants";
-import { logInfo } from "./logger";
+import { logError, logInfo } from "./logger";
+import { Range } from "vscode";
+import doc = Mocha.reporters.doc;
 
 export class AutoDocstring {
     private editor: vs.TextEditor;
 
     constructor(editor: vs.TextEditor) {
         this.editor = editor;
+    }
+
+    private getServerEndpoint(): string {
+        return vs.workspace.getConfiguration(extensionID).get("ServerEndpoint").toString();
     }
 
     public generateDocstring(): Thenable<boolean> {
@@ -24,7 +33,15 @@ export class AutoDocstring {
         const document = this.editor.document.getText();
         logInfo(`Generating Docstring at line: ${position.line}`);
 
-        const docstringSnippet = this.generateDocstringSnippet(document, position);
+        const docstringParts = parse(document, position.line);
+        const indentation = getDocstringIndentation(document, position.line,
+            getDefaultIndentation(
+                this.editor.options.insertSpaces as boolean,
+                this.editor.options.tabSize as number,
+            )
+        );
+
+        const docstringSnippet = this.generateDocstringSnippet(docstringParts, indentation);
         logInfo(`Docstring generated:\n${docstringSnippet.value}`);
 
         const insertPosition = position.with(undefined, 0);
@@ -33,7 +50,34 @@ export class AutoDocstring {
         const success = this.editor.insertSnippet(docstringSnippet, insertPosition);
 
         success.then(
-            () => logInfo("Successfully inserted docstring"),
+            () => {
+                logInfo("Successfully inserted docstring");
+
+                const docstringSnippetLength = docstringSnippet.value.split('\n').length;
+                const docstringSnippetRange = new Range(
+                    insertPosition.line, 0,
+                    insertPosition.line + docstringSnippetLength, 0
+                );
+
+                axios.post(`http://${this.getServerEndpoint()}/summary`, {
+                    code: docstringParts.code.join(' ')
+                })
+                .then((response) => {
+                    const summary = response.data.message[0];
+                    console.log(summary);
+                    this.editor.edit(editBuilder => {
+                        editBuilder.replace(docstringSnippetRange,
+                            this.editor.document.getText(docstringSnippetRange).replace(
+                                `AI is creating summary for ${docstringParts.name}`,
+                                summary
+                            )
+                        );
+                    });
+                })
+                .catch(function (error) {
+                    logError(error);
+                });
+            },
             (reason) => {
                 throw new Error("Could not insert docstring: " + reason.toString());
             },
@@ -42,7 +86,7 @@ export class AutoDocstring {
         return success;
     }
 
-    private generateDocstringSnippet(document: string, position: vs.Position): vs.SnippetString {
+    private generateDocstringSnippet(docstringParts: DocstringParts, indentation: string): vs.SnippetString {
         const config = this.getConfig();
 
         const docstringFactory = new DocstringFactory(
@@ -54,12 +98,6 @@ export class AutoDocstring {
             config.get("guessTypes") === true,
         );
 
-        const docstringParts = parse(document, position.line);
-        const defaultIndentation = getDefaultIndentation(
-            this.editor.options.insertSpaces as boolean,
-            this.editor.options.tabSize as number,
-        );
-        const indentation = getDocstringIndentation(document, position.line, defaultIndentation);
         const docstring = docstringFactory.generateDocstring(docstringParts, indentation);
 
         return new vs.SnippetString(docstring);
