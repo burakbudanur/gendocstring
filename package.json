@@ -1,9 +1,9 @@
 {
-    "name": "autodocstring",
+    "name": "ai-docstring",
     "displayName": "Python Docstring Generator",
     "description": "Automatically generates detailed docstrings for python functions",
-    "version": "0.5.3",
-    "publisher": "njpwerner",
+    "version": "0.1.0",
+    "publisher": "graykode",
     "license": "SEE LICENSE IN LICENSE",
     "icon": "images/icon.png",
     "extensionKind": [
@@ -11,10 +11,10 @@
     ],
     "repository": {
         "type": "git",
-        "url": "https://github.com/NilsJPWerner/autoDocstring"
+        "url": "https://github.com/graykode/ai-docstring"
     },
     "bugs": {
-        "url": "https://github.com/NilsJPWerner/autoDocstring/issues"
+        "url": "https://github.com/graykode/ai-docstring/issues"
     },
     "categories": [
         "Snippets",
