@@ -1,8 +1,8 @@
 {
     "name": "ai-docstring",
-    "displayName": "Python Docstring Generator",
-    "description": "Automatically generates detailed docstrings for python functions",
-    "version": "0.1.0",
+    "displayName": "AI Python Docstring Generator",
+    "description": "Automatically generates summary for python functions using AI",
+    "version": "0.1.1",
     "publisher": "graykode",
     "license": "SEE LICENSE IN LICENSE",
     "icon": "images/icon.png",
