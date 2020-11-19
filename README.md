@@ -46,7 +46,7 @@ Cursor must be on the line directly below the definition to generate full auto-p
 ## Extension Settings
 
 Extension Settings are the same as the [mother project](https://github.com/NilsJPWerner/autoDocstring#extension-settings) except for `autoDocstring.ServerEndpoint` :
--   `autoDocstring.ServerEndpoint`: endpoint address accessible to the server.
+-   `ai-docstring.ServerEndpoint`: endpoint address accessible to the server.
 
 ## Inference Benchmark(mean of 100 trials)
 | Device | beam_size | max_source_length |  max_target_length | Time(ms) |

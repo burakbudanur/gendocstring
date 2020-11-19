@@ -44,13 +44,13 @@
     "contributes": {
         "commands": [
             {
-                "command": "autoDocstring.generateDocstring",
+                "command": "ai-docstring.generateDocstring",
                 "title": "Generate Docstring"
             }
         ],
         "keybindings": [
             {
-                "command": "autoDocstring.generateDocstring",
+                "command": "ai-docstring.generateDocstring",
                 "key": "ctrl+shift+2",
                 "mac": "cmd+shift+2",
                 "when": "editorTextFocus"
@@ -60,7 +60,7 @@
             "editor/context": [
                 {
                     "when": "resourceLangId == python",
-                    "command": "autoDocstring.generateDocstring",
+                    "command": "ai-docstring.generateDocstring",
                     "group": "1_modification"
                 }
             ]
@@ -69,7 +69,7 @@
             "type": "object",
             "title": "Python Docstring Generator configuration",
             "properties": {
-                "autoDocstring.docstringFormat": {
+                "ai-docstring.docstringFormat": {
                     "type": "string",
                     "default": "google",
                     "enum": [
@@ -80,42 +80,42 @@
                     ],
                     "description": "Which docstring format to use."
                 },
-                "autoDocstring.ServerEndpoint": {
+                "ai-docstring.ServerEndpoint": {
                     "type": "string",
                     "default": "127.0.0.1:5000",
                     "description": "endpoint address accessible to the server"
                 },
-                "autoDocstring.customTemplatePath": {
+                "ai-docstring.customTemplatePath": {
                     "type": "string",
                     "default": "",
                     "description": "Path to custom docstring template (overrides docstringFormat). Path can be absolute or relative to the project root."
                 },
-                "autoDocstring.generateDocstringOnEnter": {
+                "ai-docstring.generateDocstringOnEnter": {
                     "type": "boolean",
                     "default": true,
                     "description": "Generate docstring on pressing enter after opening a docstring (use quoteStyle)"
                 },
-                "autoDocstring.includeExtendedSummary": {
+                "ai-docstring.includeExtendedSummary": {
                     "type": "boolean",
                     "default": false,
                     "description": "Include [extended_summary] tag"
                 },
-                "autoDocstring.includeName": {
+                "ai-docstring.includeName": {
                     "type": "boolean",
                     "default": false,
                     "description": "Include function names at the start of docstrings"
                 },
-                "autoDocstring.startOnNewLine": {
+                "ai-docstring.startOnNewLine": {
                     "type": "boolean",
                     "default": false,
                     "description": "Start docstring on new line"
                 },
-                "autoDocstring.guessTypes": {
+                "ai-docstring.guessTypes": {
                     "type": "boolean",
                     "default": true,
                     "description": "Guess the type of parameters and return values"
                 },
-                "autoDocstring.quoteStyle": {
+                "ai-docstring.quoteStyle": {
                     "type": "string",
                     "default": "\"\"\"",
                     "enum": [
@@ -124,7 +124,7 @@
                     ],
                     "description": "Style of quote used with generate docstring command"
                 },
-                "autoDocstring.logLevel": {
+                "ai-docstring.logLevel": {
                     "type": "string",
                     "default": "Info",
                     "enum": [

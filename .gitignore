@@ -8,7 +8,7 @@ test_*
 .vscode/settings.json
 *.psd
 todo
-autodocstring-*.vsix
+ai-docstring-*.vsix
 
 .idea/
 *.bin

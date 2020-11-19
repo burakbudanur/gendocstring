@@ -10,7 +10,7 @@ const logLevel = vscode.workspace.getConfiguration(extensionID).get("logLevel") 
 
 export function getLogChannel() {
     if (outLogChannel === undefined) {
-        outLogChannel = vscode.window.createOutputChannel("autoDocstring");
+        outLogChannel = vscode.window.createOutputChannel("ai-docstring");
     }
     return outLogChannel;
 }
@@ -19,7 +19,7 @@ export function logError(error: any) {
     getLogChannel().appendLine(`[ERROR ${getTimeAndMs()}] ${error.toString()}`);
     getLogChannel().show();
     vscode.window.showErrorMessage(
-        "AutoDocstring encountered an error. Please view details in the 'autoDocstring' output window",
+        "AutoDocstring encountered an error. Please view details in the 'ai-docstring' output window",
     );
 }
 
