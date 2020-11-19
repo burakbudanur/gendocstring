@@ -18,4 +18,4 @@ RUN gdown https://drive.google.com/uc?id=${WEIGHT}
 
 RUN pip3 install -r requirements.txt
 
-ENTRYPOINT ["python3", "app.py", "--load_model_path", "./weight/python/"]
+ENTRYPOINT ["python3", "app.py"]
