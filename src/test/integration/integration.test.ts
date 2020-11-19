@@ -9,8 +9,8 @@ chai.config.truncateThreshold = 0;
 const expect = chai.expect;
 
 /** Extension identifier. */
-const identifier = "njpwerner.autodocstring";
-const settingsIdentifier = "autoDocstring";
+const identifier = "graykode.ai-docstring";
+const settingsIdentifier = "ai-docstring";
 
 describe("Basic Integration Tests", function () {
     this.timeout(30000);
@@ -53,7 +53,7 @@ describe("Basic Integration Tests", function () {
             await delay(200);
             await vsc.commands.executeCommand("acceptSelectedSuggestion");
             await delay(600);
-            expect(document.getText()).to.contain("[summary]");
+            expect(document.getText()).to.contain("AI is creating summary for");
         });
 
         it("will activate the Generate Docstring completion item after triple single quotes", async function () {
@@ -68,7 +68,7 @@ describe("Basic Integration Tests", function () {
             await delay(200);
             await vsc.commands.executeCommand("acceptSelectedSuggestion");
             await delay(600);
-            expect(document.getText()).to.contain("[summary]");
+            expect(document.getText()).to.contain("AI is creating summary for");
         });
 
         it("will activate the Generate Docstring completion item if using CRLF line endings", async function () {
@@ -82,7 +82,7 @@ describe("Basic Integration Tests", function () {
             await delay(200);
             await vsc.commands.executeCommand("acceptSelectedSuggestion");
             await delay(600);
-            expect(document.getText()).to.contain("[summary]");
+            expect(document.getText()).to.contain("AI is creating summary for");
         });
     });
 

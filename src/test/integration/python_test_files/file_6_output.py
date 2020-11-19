@@ -2,7 +2,7 @@ def func1(a):
 	pass
 
 def abc(a, b):
-	"""[summary]
+	"""AI is creating summary for abc
 
 	:param a: [description]
 	:type a: [type]

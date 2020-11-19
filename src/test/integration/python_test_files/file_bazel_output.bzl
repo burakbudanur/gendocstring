@@ -1,6 +1,6 @@
 
 def function(arg1, arg2, kwarg1=1):
-    """[summary]
+    """AI is creating summary for function
 
     :param arg1: [description]
     :type arg1: [type]

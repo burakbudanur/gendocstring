@@ -6,7 +6,7 @@ class abc():
         b: str,
         c = "abc",
     ):
-        """[summary]
+        """AI is creating summary for function
 
         :param a: [description]
         :type a: int

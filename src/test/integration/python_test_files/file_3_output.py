@@ -1,6 +1,6 @@
 
 def fun(arg1: int) -> str:  # comment
-    """[summary]
+    """AI is creating summary for fun
 
     :param arg1: [description]
     :type arg1: int

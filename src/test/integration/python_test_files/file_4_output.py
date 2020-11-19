@@ -3,7 +3,7 @@ def build(self,
             my_id: uuid.UUID,
             my_callable: Callable[[int, str, List[object], Enum],
                                         dict] = None) -> None:
-    """[summary]
+    """AI is creating summary for build
 
     :param my_id: [description]
     :type my_id: uuid.UUID

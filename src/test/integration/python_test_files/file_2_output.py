@@ -6,7 +6,7 @@ def function(
     arg2: Union[List[str], Dict[str, int], Thing],
     kwarg1: int = 1
 ) -> Generator[Tuple[str, str]]:
-    """[summary]
+    """AI is creating summary for function
 
     :param arg1: [description]
     :type arg1: int

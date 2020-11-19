@@ -54,7 +54,7 @@ describe("DocstringFactory", () => {
 
             const result = factory.generateDocstring(docstringComponents);
 
-            expect(result).to.equal('"""${1:AI is creating summary for Function}"""');
+            expect(result).to.equal('"""${1:AI is creating summary for}"""');
         });
 
         it("should use the docstring name if the template specifies it", () => {
@@ -237,7 +237,7 @@ describe("DocstringFactory", () => {
 
                     const result = factory.generateDocstring(docstringComponents);
 
-                    expect(result).to.equal('"""\nFunction ${1:AI is creating summary for Function}"""');
+                    expect(result).to.equal('"""\nFunction ${1:AI is creating summary for}"""');
                 });
             });
 
@@ -255,7 +255,7 @@ describe("DocstringFactory", () => {
 
                     const result = factory.generateDocstring(docstringComponents);
 
-                    expect(result).to.equal('"""\n${1:AI is creating summary for Function}"""');
+                    expect(result).to.equal('"""\n${1:AI is creating summary for}"""');
                 });
             });
         });
