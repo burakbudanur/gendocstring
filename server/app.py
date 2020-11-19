@@ -170,7 +170,8 @@ if __name__ == "__main__":
 
     args.device_name = "cuda" if torch.cuda.is_available() and not args.no_cuda else "cpu"
     args.device = torch.device(args.device_name)
-    args.beam = (args.beam if torch.cuda.is_available() else 1)
-    args.max_source_length = (args.max_source_length if torch.cuda.is_available() else 256)
+    args.beam_size = (args.beam_size if torch.cuda.is_available() and not args.no_cuda else 1)
+
+    logger.info(args)
 
     main(args)

@@ -18,9 +18,10 @@ import requests
 from tqdm import tqdm
 
 def main(args):
-    data = {'code': ('a = 1000 * b + 1000 * c + 1000 * b + 1000 * c + 1000 * b + 1000 * c ' * 100).strip()}
+    data = {'code': ('a = 1000 * b + 1000 * c + 1000 * b + 1000 * c + 1000 * b + 1000 * c ' * 1000).strip()}
     headers = {'Content-Type': 'application/json;'}
     times = []
+    lenghts = []
     for _ in tqdm(range(args.trials)):
         response = requests.post(
             f'http://{args.host}:{args.port}/summary',
@@ -30,8 +31,9 @@ def main(args):
         assert response.status_code == 200
         response = json.loads(response.text)
         times.append(float(response['time']))
+        lenghts.append(int(response['length']))
 
-    print(sum(times) / len(times))
+    print(f'{sum(times) / len(times)} with {sum(lenghts) / len(lenghts)}')
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="")
