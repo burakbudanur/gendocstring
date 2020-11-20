@@ -159,7 +159,7 @@ if __name__ == "__main__":
         "than this will be truncated, sequences shorter will be padded.",
     )
     parser.add_argument(
-        "--beam_size", default=1, type=int, help="beam size for beam search"
+        "--beam_size", default=10, type=int, help="beam size for beam search"
     )
     parser.add_argument("--no_cuda", action='store_true', help="Avoid using CUDA when available")
 
