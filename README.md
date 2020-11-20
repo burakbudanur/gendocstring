@@ -26,12 +26,16 @@ This project is forked for [NilsJPWerner/autoDocstring](https://github.com/NilsJ
 
 ## Usage
 
-Usage is very simple. You just (1)run the container for the model inference server and (2)install extension in vscode and use.
+Usage is very simple. You just (1) run the container for the model inference server and (2) install extension in vscode and use.
 
 #### (1) Run the container for the model inference server
 
-1. If you have GPU machine : `docker run -it -d --gpus 0 -p 5000:5000 graykode/ai-docstring`, after installing [nvidia-docker](https://github.com/NVIDIA/nvidia-docker). 
-2. If you have only CPU : `docker run -it -d -p 5000:5000 graykode/ai-docstring`
+1. If you have GPU machine : `docker run -it -d --gpus 0 -p 5000:5000 graykode/ai-docstring:gpu`, after installing [nvidia-docker](https://github.com/NVIDIA/nvidia-docker). 
+2. If you have only CPU : 
+ a. Run flask server with [google colab and ngrok](server/server.ipynb)(Recommend!) 
+ or b. use docker cpu image : `docker run -it -d -p 5000:5000 graykode/ai-docstring:cpu`
+    - At this time, it is very likely to cause OOM problem. We need more memory limit than roughly 2GB.
+    So add `--memory 2g --memory-swap` parameter in linux and change memory limit in `Preferences > Advanced` more than 2GB(default) in macOS.
 
 #### (2) Install extension in vscode and use
 
