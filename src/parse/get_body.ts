@@ -18,7 +18,6 @@ export function getBody(document: string, linePosition: number): string[] {
         if (indentationOf(line) < originalIndentation) {
             break;
         }
-
         body.push(line);
         currentLineNum++;
     }

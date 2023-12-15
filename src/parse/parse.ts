@@ -9,9 +9,10 @@ export function parse(document: string, positionLine: number): DocstringParts {
     const body = getBody(document, positionLine);
     // vs.window.showErrorMessage("here3");
 
+
     const parameterTokens = tokenizeDefinition(definition);
     const functionName = getFunctionName(definition);
-    const code = ([definition].concat(body));
+    const code = ([definition + '\n'].concat(body));
 
     return parseParameters(parameterTokens, body, functionName, code);
 }

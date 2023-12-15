@@ -60,7 +60,7 @@ export class AutoDocstring {
                 );
 
                 axios.post(`http://${this.getServerEndpoint()}/summary`, {
-                    code: docstringParts.code.join(' ')
+                    code: docstringParts.code.join('')
                 })
                 .then((response) => {
                     const summary = response.data.message[0];
