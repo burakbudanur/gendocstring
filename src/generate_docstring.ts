@@ -40,10 +40,21 @@ export class AutoDocstring {
                 this.editor.options.tabSize as number,
             )
         );
+        
+        console.log("**************")
+        console.log("docstringParts")
+        console.log(docstringParts)
+        console.log("**************")
 
         const docstringSnippet = this.generateDocstringSnippet(docstringParts, indentation);
         logInfo(`Docstring generated:\n${docstringSnippet.value}`);
 
+        console.log("**************")
+        console.log("docstringSnippet")
+        console.log(docstringSnippet)
+        console.log("**************")
+
+        
         const insertPosition = position.with(undefined, 0);
         logInfo(`Inserting at position: ${insertPosition.line} ${insertPosition.character}`);
 
@@ -58,20 +69,20 @@ export class AutoDocstring {
                     insertPosition.line, 0,
                     insertPosition.line + docstringSnippetLength, 0
                 );
+                const docstringSnippetContentRange = new Range(
+                    insertPosition.line + 1, 0,
+                    insertPosition.line + docstringSnippetLength - 1, 0
+                );
 
                 axios.post(`http://${this.getServerEndpoint()}/summary`, {
-                    code: docstringParts.code.join('')
+                    code: docstringParts.code.join(''), 
+                    snippet: this.editor.document.getText(docstringSnippetRange),
                 })
                 .then((response) => {
                     const summary = response.data.message[0];
                     console.log(summary);
                     this.editor.edit(editBuilder => {
-                        editBuilder.replace(docstringSnippetRange,
-                            this.editor.document.getText(docstringSnippetRange).replace(
-                                `AI is creating summary for ${docstringParts.name}`,
-                                summary
-                            )
-                        );
+                        editBuilder.replace(docstringSnippetContentRange,summary);
                     });
                 })
                 .catch(function (error) {

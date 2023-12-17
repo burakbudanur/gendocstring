@@ -53,7 +53,7 @@ export class TemplateData {
     }
 
     public summaryPlaceholder(): string {
-        const summary = `AI is creating summary for ${this.name}`;
+        const summary = `\n[Summary of the function ${this.name}]`;
         if (this.includeName) {
             return this.name + " ${@@@:" + summary + "}";
         }

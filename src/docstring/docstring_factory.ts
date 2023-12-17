@@ -14,7 +14,7 @@ export class DocstringFactory {
     constructor(
         template: string,
         quoteStyle = '"""',
-        startOnNewLine = false,
+        startOnNewLine = true,
         includeDescription = true,
         includeName = false,
         guessTypes = true,
