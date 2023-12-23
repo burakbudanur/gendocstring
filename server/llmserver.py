@@ -6,15 +6,22 @@ import time
 import json
 from pathlib import Path
 from huggingface_hub import hf_hub_download
-from llama_cpp import Llama
 import multiprocessing
 import re
+
+try:
+    from llama_cpp import Llama
+except: 
+    print(
+        "Cannot find llama_cpp. Visit \n" 
+        "https://llama-cpp-python.readthedocs.io/en/latest/#installation-with-specific-hardware-acceleration-blas-cuda-metal-etc \n"
+        " for installation instructions for your hardware."
+          )
 
 num_cpu = multiprocessing.cpu_count()
 print(num_cpu)
 
 def log(string):
-    # datetime object containing current date and time
     now = datetime.now()
 
     print("now =", now)
@@ -41,6 +48,10 @@ def download_weights():
             )
         return
     else:
+        print(
+            "Downloading the weights. This will take some time and disk space."
+            "Next run will be faster."
+            )        
         return hf_hub_download(
             repo_id = repo_id, filename=filename, local_dir='./weights/',
             local_dir_use_symlinks = False
@@ -54,13 +65,13 @@ def get_docstring_from_template(code, template):
     instruction += "Return the full function definition with the docstring."
 
     message = f"Docstring template: \n {template} \n <s>[INST] {instruction} [/INST]</s> \n {code}"
-    output = llm(message, echo=False, stream=False, max_tokens=4096)
+    output = llm(message, echo=True, stream=False, max_tokens=4096)
     text = output['choices'][0]['text']
     print(text)
     docstring_pattern = re.compile(r'\'\'\'(.*?)\'\'\'|\"\"\"(.*?)\"\"\"', re.DOTALL)
     match = docstring_pattern.search(text)
 
-    return match.groups()[1] if match else text
+    return match.groups()[1] if match else "Docstring generation failed, please try again."
 
 
 if __name__ == '__main__':

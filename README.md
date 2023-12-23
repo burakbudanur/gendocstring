@@ -1,11 +1,14 @@
-[![Build Status](https://travis-ci.com/graykode/ai-docstring.svg?branch=master)](https://travis-ci.com/graykode/ai-docstring)
-[![Installs](https://vsmarketplacebadge.apphb.com/installs-short/graykode.ai-docstring.svg)](https://marketplace.visualstudio.com/items?itemName=graykode.ai-docstring)
-[![Rating](https://vsmarketplacebadge.apphb.com/rating-short/graykode.ai-docstring.svg)](https://marketplace.visualstudio.com/items?itemName=graykode.ai-docstring&ssr=false#review-details)
+# VSCode add-on for generating python docstrings with an LLM backend
 
-# VSCode Python AI Docstring Generator
 
-Visual Studio Code extension to quickly generate docstrings for python functions using AI(NLP) technology.
-This project is forked for [NilsJPWerner/autoDocstring](https://github.com/NilsJPWerner/autoDocstring). Previously, the description of the function had to be written by the user, but the AI would see the code and summarize.
+
+Visual Studio Code extension to quickly generate docstrings for python functions
+using AI(NLP) technology. This project is forked from
+[graykode/ai-docstring](https://github.com/graykode/ai-docstring). Main
+difference is that this version uses a quantized version of
+[Mistral-AI][https://mistral.ai]'s 7B model and *attempts* to produce full
+docstring including variable types and descriptions according to the chosen 
+template.  
 
 ![Auto Generate Docstrings](images/demo.gif)
 
