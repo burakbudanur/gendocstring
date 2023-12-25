@@ -20,7 +20,6 @@ https://github.com/burakbudanur/llmdocstring/assets/1861787/414a9728-548b-49e9-a
 -   docBlockr
 -   Numpy
 -   Sphinx
--   PEP0257 (coming soon)
 
 ## Usage
 
