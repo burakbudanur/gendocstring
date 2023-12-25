@@ -6,7 +6,7 @@ Visual Studio Code extension to quickly generate docstrings for python functions
 using AI(NLP) technology. This project is forked from
 [graykode/ai-docstring](https://github.com/graykode/ai-docstring). Main
 difference is that this version uses a quantized version of
-[Mistral-AI][https://mistral.ai]'s 7B model and *attempts* to produce full
+[Mistral-AI](https://mistral.ai)'s 7B model and *attempts* to produce full
 docstring including variable types and descriptions according to the chosen 
 template.  
 
