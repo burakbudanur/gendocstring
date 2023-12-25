@@ -1,7 +1,5 @@
 # VSCode add-on for generating python docstrings with an LLM backend
 
-
-
 Visual Studio Code extension to quickly generate docstrings for python functions
 using AI(NLP) technology. This project is forked from
 [graykode/ai-docstring](https://github.com/graykode/ai-docstring). Main
@@ -10,6 +8,10 @@ difference is that this version uses a quantized version of
 docstring including variable types and descriptions according to the chosen 
 template.  
 
+Demo:
+
+https://github.com/burakbudanur/llmdocstring/assets/1861787/414a9728-548b-49e9-afde-da9938bdde54
+
 ## Docstring Formats
 
 -   Google (default)
@@ -17,8 +19,6 @@ template.
 -   Numpy
 -   Sphinx
 -   PEP0257 (coming soon)
-
-<video width="640" src="https://github.com/burakbudanur/llmdocstring/blob/6b4af53c1b001bb50046e34a2a31f5d9c82cbb79/demo.mp4" autoplay></video>
 
 ## Usage
 
