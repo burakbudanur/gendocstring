@@ -10,7 +10,6 @@ difference is that this version uses a quantized version of
 docstring including variable types and descriptions according to the chosen 
 template.  
 
-
 ## Docstring Formats
 
 -   Google (default)
@@ -18,6 +17,8 @@ template.
 -   Numpy
 -   Sphinx
 -   PEP0257 (coming soon)
+
+<video width="640" src="https://github.com/burakbudanur/llmdocstring/blob/6b4af53c1b001bb50046e34a2a31f5d9c82cbb79/demo.mp4" autoplay></video>
 
 ## Usage
 
