@@ -1,12 +1,12 @@
 # VSCode add-on for generating python docstrings with an LLM backend
 
-### Important: You need to run an LLM backend instance for this add-on to work. See *Usage* below.
+### Important: You need to run an LLM instance for this add-on to work. See *Usage* below.
 
 Visual Studio Code extension to quickly generate docstrings for python functions
 using AI(NLP) technology. This project is forked from
 [graykode/ai-docstring](https://github.com/graykode/ai-docstring). Main
 difference is that this version uses a quantized version of
-[Mistral-AI](https://mistral.ai)'s 7B model and *attempts* to produce full
+[Mistral-AI](https://mistral.ai)'s 7B model and *attempts* to produce a complete
 docstring including variable types and descriptions according to the chosen 
 template.  
 
@@ -50,5 +50,3 @@ Cursor must be on the line directly below the definition to generate full auto-p
     -   Can be changed in Preferences -> Keyboard Shortcuts -> extension.generateDocstring
 -   Command: `Generate Docstring`
 -   Right click menu: `Generate Docstring`
-
-This project is licensed under the [Apache 2.0 License](LICENSE) which is based on MIT License.
