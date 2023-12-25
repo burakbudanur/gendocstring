@@ -22,6 +22,8 @@ num_cpu = multiprocessing.cpu_count()
 print(num_cpu)
 
 def log(string):
+    
+    
     now = datetime.now()
 
     print("now =", now)
