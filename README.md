@@ -10,14 +10,6 @@ difference is that this version uses a quantized version of
 docstring including variable types and descriptions according to the chosen 
 template.  
 
-![Auto Generate Docstrings](images/demo.gif)
-
-## Features
-
--   AI Quickly generate a docstring snippet that can be tabbed through.
--   Choose between several different types of docstring formats.
--   Infers parameter types through pep484 type hints, default values, and var names.
--   Support for args, kwargs, decorators, errors, and parameter types
 
 ## Docstring Formats
 
@@ -28,8 +20,6 @@ template.
 -   PEP0257 (coming soon)
 
 ## Usage
-
-Usage is very simple. You just (1) run the container for the model inference server and (2) install extension in vscode and use.
 
 #### (1) Run the container for the model inference server
 
@@ -55,24 +45,5 @@ Cursor must be on the line directly below the definition to generate full auto-p
 Extension Settings are the same as the [mother project](https://github.com/NilsJPWerner/autoDocstring#extension-settings) except for `autoDocstring.ServerEndpoint` :
 -   `ai-docstring.ServerEndpoint`: endpoint address accessible to the server.
 
-## About training and dataset
-
-For training data, [github/CodeSearchNet](https://github.com/github/CodeSearchNet) was used, and as an initial model, we used Code2NL(Code to Natural Language) fine-tuning tasks in [microsoft/CodeBERT](https://github.com/microsoft/CodeBERT). For detailed instructions, refer to the paper ([CodeBERT: A Pre-Trained Model for Programming and Natural Languages](https://arxiv.org/pdf/2002.08155.pdf)) and [this section](https://github.com/microsoft/CodeBERT#fine-tune-1).
-
-## Inference Benchmark(mean of 100 trials)
-| Device | beam_size | max_source_length |  max_target_length | Time(ms) |
-| :-----:| :---: | :---:| :---: | :---: |
-| CPU    | 1    | 256   | 128   | 470  |
-| CPU    | 10   | 256   | 128   | 1332 |
-| CPU    | 1    | 512   | 128   | 511  |
-| CPU    | 10   | 512   | 128   | 1954 |
-| GPU    | 1    | 256   | 128   | 165  |
-| GPU    | 10   | 256   | 128   | 381  |
-| GPU    | 1    | 512   | 128   | 205  |
-| GPU    | 10   | 512   | 128   | 545  |
-- CPU : Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz
-- GPU : Nvidia Tesla T4
-
-## License
 
 This project is licensed under the [Apache 2.0 License](LICENSE) which is based on MIT License.
