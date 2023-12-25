@@ -23,7 +23,6 @@ print(num_cpu)
 
 def log(string):
     
-    
     now = datetime.now()
 
     print("now =", now)
