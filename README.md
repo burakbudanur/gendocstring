@@ -1,5 +1,7 @@
 # VSCode add-on for generating python docstrings with an LLM backend
 
+### Important: You need to run an LLM backend instance for this add-on to work. See *Usage* below.
+
 Visual Studio Code extension to quickly generate docstrings for python functions
 using AI(NLP) technology. This project is forked from
 [graykode/ai-docstring](https://github.com/graykode/ai-docstring). Main
@@ -22,16 +24,25 @@ https://github.com/burakbudanur/llmdocstring/assets/1861787/414a9728-548b-49e9-a
 
 ## Usage
 
-#### (1) Run the container for the model inference server
+### Backend:
 
-1. If you have GPU machine : `docker run -it -d --gpus 0 -p 5000:5000 graykode/ai-docstring:gpu`, after installing [nvidia-docker](https://github.com/NVIDIA/nvidia-docker). 
-2. If you have only CPU : 
- a. Run flask server with [google colab and ngrok](server/server.ipynb)(Recommend!) 
- or b. use docker cpu image : `docker run -it -d -p 5000:5000 graykode/ai-docstring:cpu`
-    - At this time, it is very likely to cause OOM problem. We need more memory limit than roughly 2GB.
-    So add `--memory 2g --memory-swap` parameter in linux and change memory limit in `Preferences > Advanced` more than 2GB(default) in macOS.
+#### (1) ngrok & google colab solution
 
-#### (2) Install extension in vscode and use
+1. Create [ngrok](https://ngrok.com) and [google colab](https://colab.research.google.com) accounts.
+2. Open the [server notebook](server/llmserver.ipynb) on google colab.
+3. Replace `<authtoken>` with your ngrok authtoken in the second cell and uncomment the corresponding line
+4. Run all cells
+5. Copy the ngrok address (without https) into the extension settings `llmdocstring.ServerEndpoint`
+
+#### (2) local 
+
+1. Recommended: Create a new python environment with python version 3.9 and activate
+2. In the directory `server`, run `pip install -r requirements.txt`
+3. Check [llama-cpp-python installation page](https://pypi.org/project/llama-cpp-python/) to install llama-cpp-python according to your hardware.
+4. Run `python llmserver.py`
+5. Copy `127.0.0.1:5000` into the extension settings `llmdocstring.ServerEndpoint`
+
+### on vscode:
 
 Cursor must be on the line directly below the definition to generate full auto-populated docstring
 
@@ -40,11 +51,5 @@ Cursor must be on the line directly below the definition to generate full auto-p
     -   Can be changed in Preferences -> Keyboard Shortcuts -> extension.generateDocstring
 -   Command: `Generate Docstring`
 -   Right click menu: `Generate Docstring`
-
-## Extension Settings
-
-Extension Settings are the same as the [mother project](https://github.com/NilsJPWerner/autoDocstring#extension-settings) except for `autoDocstring.ServerEndpoint` :
--   `ai-docstring.ServerEndpoint`: endpoint address accessible to the server.
-
 
 This project is licensed under the [Apache 2.0 License](LICENSE) which is based on MIT License.
