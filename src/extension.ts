@@ -40,7 +40,7 @@ export function activate(context: vs.ExtensionContext): void {
         );
     });
 
-    logInfo("ai-docstring was activated");
+    logInfo("llmdocstring was activated");
 }
 
 /**

@@ -91,7 +91,7 @@ if __name__ == '__main__':
     # Define Flask routes
     @app.route("/")
     def index():
-        return "Hello from gendocstring server."
+        return "Hello from llmdocstring server."
 
     @app.route("/summary", methods=["POST"])
     def summary():

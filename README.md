@@ -8,7 +8,7 @@ difference is that this version uses a quantized version of
 docstring including variable types and descriptions according to the chosen 
 template.  
 
-Demo:
+Demo (real time, using Google Colab T4 runtime as backend):
 
 https://github.com/burakbudanur/llmdocstring/assets/1861787/414a9728-548b-49e9-afde-da9938bdde54
 
