@@ -81,7 +81,7 @@ if __name__ == '__main__':
     
     model = "weights/mistral-7b-instruct-v0.1.Q6_K.gguf"  # instruction model
     llm = Llama(
-        model_path=model, n_ctx=10240, n_batch=256, n_threads=num_cpu,
+        model_path=model, n_ctx=8192, n_batch=128, n_threads=num_cpu,
         n_gpu_layers=-1, verbose=True, seed=42
         )
 
