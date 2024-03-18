@@ -9,8 +9,8 @@ chai.config.truncateThreshold = 0;
 const expect = chai.expect;
 
 /** Extension identifier. */
-const identifier = "graykode.ai-docstring";
-const settingsIdentifier = "ai-docstring";
+const identifier = "burakbudanur.llmdocstring";
+const settingsIdentifier = "llmdocstring";
 
 describe("Basic Integration Tests", function () {
     this.timeout(30000);

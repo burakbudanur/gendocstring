@@ -2,10 +2,9 @@
     "name": "llmdocstring",
     "displayName": "AI Python Docstring Generator",
     "description": "Automatically generates python docstring",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "publisher": "burakbudanur",
     "license": "SEE LICENSE IN LICENSE",
-    "icon": "icon.png",
     "extensionKind": [
         "workspace"
     ],
@@ -154,7 +153,6 @@
         "@types/mustache": "^0.8.32",
         "@types/node": "^13.13.1",
         "@types/vscode": "^1.9.0",
-        "axios": "^1.6.2",
         "chai": "^4.2.0",
         "copyfiles": "^2.2.0",
         "mocha": "^10.2.0",
@@ -164,6 +162,7 @@
     },
     "dependencies": {
         "@types/stack-trace": "0.0.29",
+        "axios": "^1.6.2",
         "mustache": "^3.2.1",
         "stack-trace": "0.0.10"
     }
