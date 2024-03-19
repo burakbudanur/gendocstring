@@ -129,4 +129,4 @@ if __name__ == '__main__':
             return jsonify(**result)
 
     # Start the Flask server in a new thread
-    threading.Thread(target=app.run, kwargs={"use_reloader": False}).start()
+    threading.Thread(target=app.run, kwargs={"use_reloader": False, "host":"0.0.0.0"}).start()
