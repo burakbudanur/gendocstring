@@ -1,6 +1,5 @@
 services:
   llmserver:
     build: .
-    container_name: llmserver
     ports:
       - 5000:5000
