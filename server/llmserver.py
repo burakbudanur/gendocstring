@@ -41,7 +41,7 @@ def download_weights():
     weights_dir.mkdir(exist_ok=True)
 
     repo_id = "TheBloke/Mistral-7B-Instruct-v0.1-GGUF"
-    filename = "mistral-7b-instruct-v0.1.Q6_K.gguf"
+    filename = "mistral-7b-instruct-v0.1.Q4_K_M.gguf"
 
     if (weights_dir / Path(filename)).exists():
         print(
@@ -79,7 +79,7 @@ if __name__ == '__main__':
     
     download_weights()
     
-    model = "weights/mistral-7b-instruct-v0.1.Q6_K.gguf"  # instruction model
+    model = "weights/mistral-7b-instruct-v0.1.Q4_K_M.gguf"  # instruction model
     llm = Llama(
         model_path=model, n_ctx=8192, n_batch=128, n_threads=num_cpu,
         n_gpu_layers=-1, verbose=True, seed=42
